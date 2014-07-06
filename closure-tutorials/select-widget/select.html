@@ -1,0 +1,30 @@
+<html>
+  <head>
+    <script src="../../closure-library/closure/goog/base.js"></script>
+    <script>
+      goog.require('goog.ui.Option');
+      goog.require('goog.ui.Select');
+    </script>
+    <link rel="stylesheet" href="../../closure-library/closure/goog/css/menubutton.css">
+    <link rel="stylesheet" href="../../closure-library/closure/goog/css/menu.css">
+    <link rel="stylesheet" href="../../closure-library/closure/goog/css/menuitem.css">
+    <link rel="stylesheet" href="../../closure-library/closure/goog/css/menuseparator.css">
+    <link rel="stylesheet" href="../../closure-library/closure/goog/css/flatmenubutton.css">
+  </head>
+  <body>
+    <h1>goog.ui.Select + goog.ui.Option test</h1>
+
+    <div id="my-select-element" class="goog-select">
+      Make your choice:
+        <ul class="goog-menu">
+          <li class="goog-menuitem">Pain</li>
+          <li class="goog-menuitem">Happiness</li>
+          <li class="goog-menuitem">Tiresome</li>
+        </ul>
+    </div>
+
+    <script>
+      var select = goog.ui.decorate(goog.dom.getElement('my-select-element'));
+    </script>
+  </body>
+</html>
