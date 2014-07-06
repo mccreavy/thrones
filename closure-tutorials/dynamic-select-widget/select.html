@@ -12,19 +12,21 @@
     <link rel="stylesheet" href="../../closure-library/closure/goog/css/flatmenubutton.css">
   </head>
   <body>
-    <h1>Static goog.ui.Select + goog.ui.Option test</h1>
+    <h1>Dynamic goog.ui.Select + goog.ui.Option test</h1>
 
-    <div id="my-select-element" class="goog-select">
-      Make your choice:
-        <ul class="goog-menu">
-          <li class="goog-menuitem">Pain</li>
-          <li class="goog-menuitem">Happiness</li>
-          <li class="goog-menuitem">Tiresome</li>
-        </ul>
+    <div id="parent" style="background-color: red; padding: 20px">
+      This is a parent node.
     </div>
 
     <script>
-      var select = goog.ui.decorate(goog.dom.getElement('my-select-element'));
+      var select = new goog.ui.Select();
+      select.addItem(new goog.ui.MenuItem('Alice'));
+      select.addItem(new goog.ui.MenuItem('Barbie'));
+      select.addItem(new goog.ui.MenuItem('Chrissie'));
+      select.setSelectedIndex(1);
+
+      // render takes an optional parent element, if not it goes to document body.
+      select.render(goog.dom.getElement('parent')); 
     </script>
   </body>
 </html>

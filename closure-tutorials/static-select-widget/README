@@ -1,3 +1,5 @@
 2014-07-05
 
 Instance a default goog.ui Select and Options.
+
+Define in HTML and use "goog.ui.decorate" to convert to a widget.
