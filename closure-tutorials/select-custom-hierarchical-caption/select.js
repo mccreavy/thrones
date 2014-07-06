@@ -21,9 +21,11 @@ select.start = function() {
   select.addItem(new goog.ui.MenuItem('Barbie'));
   select.addItem(new goog.ui.MenuItem('Chrissie'));
   var subMenu = new goog.ui.SubMenu('More');
+  subMenu.setSelectable(true);
   subMenu.addItem(new goog.ui.MenuItem('Deeper'));
   select.addItem(subMenu);
   var subMenu2 = new goog.ui.SubMenu('Even');
+  subMenu2.setSelectable(true);
   subMenu2.addItem(new goog.ui.MenuItem('Deepest'));
   subMenu.addItem(subMenu2);
 
