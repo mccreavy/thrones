@@ -1,0 +1,40 @@
+<html>
+  <head>
+    <script src="../../closure-library/closure/goog/base.js"></script>
+    <script>
+      goog.require('goog.ui.Option');
+      goog.require('goog.ui.Select');
+    </script>
+    <link rel="stylesheet" href="../../closure-library/closure/goog/css/menubutton.css">
+    <link rel="stylesheet" href="../../closure-library/closure/goog/css/menu.css">
+    <link rel="stylesheet" href="../../closure-library/closure/goog/css/menuitem.css">
+    <link rel="stylesheet" href="../../closure-library/closure/goog/css/menuseparator.css">
+    <link rel="stylesheet" href="../../closure-library/closure/goog/css/flatmenubutton.css">
+  </head>
+  <body>
+    <h1>Dynamic goog.ui.Select + goog.ui.Option test</h1>
+
+    <div id="parent" style="background-color: red; padding: 20px">
+      This is a parent node.
+    </div>
+
+    <script>
+      var select = new goog.ui.Select();
+      select.addItem(new goog.ui.MenuItem('Alice'));
+      select.addItem(new goog.ui.MenuItem('Barbie'));
+      select.addItem(new goog.ui.MenuItem('Chrissie'));
+      select.setSelectedIndex(1);
+
+      // render takes an optional parent element, if not it goes to document body.
+      select.render(goog.dom.getElement('parent'));
+
+      var button = new goog.ui.Button('Hello');
+      button.render(goog.dom.getElement('parent'));
+      goog.events.listen(button, goog.ui.Component.EventType.ACTION,
+          function(e) {
+             select.addItem(new goog.ui.MenuItem('Debbie'));
+          });
+
+    </script>
+  </body>
+</html>
