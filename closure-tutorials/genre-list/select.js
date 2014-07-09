@@ -5,8 +5,8 @@ goog.require('thrones.ui.GenreList');
 
 select.start = function() {
 
-  var genreList = new thrones.ui.GenreList();
-  genreList.render(goog.dom.getElement('parent'));
+  var genreList1 = new thrones.ui.GenreList();
+  genreList1.render(goog.dom.getElement('parent'));
 
   var button = new goog.ui.Button('Hello');
   button.render(goog.dom.getElement('parent'));
@@ -14,4 +14,9 @@ select.start = function() {
       function(e) {
         console.log("Need to add");
       });
+
+  var genreList2 = new thrones.ui.GenreList();
+  genreList2.render(goog.dom.getElement('parent'));
+
+  
 }

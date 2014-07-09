@@ -1,6 +1,9 @@
 goog.provide('thrones.ui.GenreList');
 
+goog.require('goog.dom.classlist');
 goog.require('goog.ui.Component');
+goog.require('goog.ui.Option');
+goog.require('goog.ui.Select');
 
 /**
  * @param {goog.dom.DomHelper=} opt_domHelper
@@ -19,16 +22,31 @@ goog.inherits(thrones.ui.GenreList, goog.ui.Component);
  */
 thrones.ui.GenreList.prototype.addNewButton_ = null;
 
+/**
+ * The DOM element for the select container.
+ * @type {Element}
+ * @private
+ */
+thrones.ui.GenreList.prototype.selectContainer_ = null;
+
+
 thrones.ui.GenreList.prototype.createDom = function() {
-  var root = this.dom_.createElement('div');
-  root.classList.add("thrones-genrelist");
+  var container = this.dom_.createElement('div');
+  goog.dom.classlist.add(container, "thrones-genrelist-container");
+
+  container.appendChild(this.dom_.createTextNode("Add up to 3 genres:"));
+
+  var selectContainer = this.dom_.createElement('div');
+  goog.dom.classlist.add(selectContainer, "thrones-genrelist-select-container");
+  container.appendChild(selectContainer);
+  this.selectContainer_ = selectContainer;
 
   var addNewButton = this.dom_.createElement('button');
   addNewButton.appendChild(this.dom_.createTextNode('Add Another'));
-  root.appendChild(addNewButton);
-
+  container.appendChild(addNewButton);
   this.addNewButton_ = addNewButton;
-  this.setElementInternal(root);
+
+  this.setElementInternal(container);
 }
 
 /**
@@ -42,6 +60,13 @@ thrones.ui.GenreList.prototype.decorateInternal = function(element) {
   this.setElementInternal(element);
 }
 
+thrones.ui.GenreList.prototype.addSelect = function() {
+  var select = new goog.ui.Select('This is my caption');
+  select.addItem(new goog.ui.MenuItem('Alice'));
+  select.render(this.selectContainer_);
+  
+}
+
 /**
  * Called when component's element is known to be in the document.
  * @override
@@ -53,7 +78,8 @@ thrones.ui.GenreList.prototype.enterDocument = function() {
   //    this.onDivClicked_);
   this.getHandler().listen(this.addNewButton_, goog.events.EventType.CLICK,
       function(e) {
-        console.log("FOOO");
+        this.addSelect();
+        console.log("FOOO", this);
       });
   //goog.events.listen(this.addNewButton_, goog.ui.Component.EventType.ACTION,
   //    function(e) {

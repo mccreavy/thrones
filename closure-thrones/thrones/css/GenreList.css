@@ -1,3 +1,24 @@
-div.thrones-genrelist {
-  border: solid 5px purple;
+div.thrones-genrelist-container {
+  border: solid 1px silver;
+  padding: .5em;
+  position: relative;
+  width: 30em;
+}
+
+div.thrones-genrelist-select-container {
+  margin: 1em;
+  margin-bottom: 2em;
+  border: 1px solid black;
+  height: 80em;
+  max-height: 10em;
+}
+
+.thrones-genrelist-container button {
+  position: absolute;
+  right: 5px;
+  bottom: 5px;
+}
+
+.thrones-genrelist-container .goog-menu-button-dropdown {
+  background: url(editortoolbar.png), no-repeat -388px 0;
 }
