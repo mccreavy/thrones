@@ -21,6 +21,7 @@ thrones.ui.GenreList.prototype.addNewButton_ = null;
 
 thrones.ui.GenreList.prototype.createDom = function() {
   var root = this.dom_.createElement('div');
+  root.classList.add("thrones-genrelist");
 
   var addNewButton = this.dom_.createElement('button');
   addNewButton.appendChild(this.dom_.createTextNode('Add Another'));

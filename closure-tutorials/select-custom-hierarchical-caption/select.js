@@ -22,6 +22,7 @@ select.start = function() {
   select.addItem(new goog.ui.MenuItem('Chrissie'));
   var subMenu = new goog.ui.SubMenu('More');
   subMenu.setSelectable(true);
+  // Setting selectable doesn't seem to work with keyboard navigation
   subMenu.addItem(new goog.ui.MenuItem('Deeper'));
   select.addItem(subMenu);
   var subMenu2 = new goog.ui.SubMenu('Even');
