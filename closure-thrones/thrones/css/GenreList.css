@@ -5,18 +5,33 @@ div.thrones-genrelist-container {
   width: 30em;
 }
 
-div.thrones-genrelist-select-container {
+div.thrones-genrelist-select-list-container {
   margin: 1em;
   margin-bottom: 2em;
   border: 1px solid black;
   height: 80em;
   max-height: 10em;
+  overflow-y: hidden;
+  top: 0;
+  left: 0;
+  right: 0;
 }
 
+div.thrones-genrelist-select-container {
+  border: 1px solid green;
+}
+
+div.thrones-genrelist-select-container button {
+  float: right;
+  margin-right: 10px;
+  margin-top: 10px;
+}
+
+
 .thrones-genrelist-container button {
-  position: absolute;
-  right: 5px;
-  bottom: 5px;
+  xposition: absolute;
+  xright: 30px;
+  xbottom: 10px;
 }
 
 .thrones-genrelist-container .goog-menu-button-dropdown {
