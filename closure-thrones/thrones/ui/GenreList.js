@@ -12,7 +12,7 @@ goog.require('goog.ui.Select');
  */
 thrones.ui.GenreList = function(opt_domHelper) {
   goog.base(this, opt_domHelper);
-}
+};
 goog.inherits(thrones.ui.GenreList, goog.ui.Component);
 
 /**
@@ -29,15 +29,19 @@ thrones.ui.GenreList.prototype.addNewButton_ = null;
  */
 thrones.ui.GenreList.prototype.selectListContainer_ = null;
 
-
+/**
+ * Create the DOM.
+ * @override
+ */
 thrones.ui.GenreList.prototype.createDom = function() {
   var container = this.dom_.createElement('div');
-  goog.dom.classlist.add(container, "thrones-genrelist-container");
+  goog.dom.classlist.add(container, 'thrones-genrelist-container');
 
-  container.appendChild(this.dom_.createTextNode("Add up to 3 genres:"));
+  container.appendChild(this.dom_.createTextNode('Add up to 3 genres:'));
 
   var selectListContainer = this.dom_.createElement('div');
-  goog.dom.classlist.add(selectListContainer, "thrones-genrelist-select-list-container");
+  goog.dom.classlist.add(selectListContainer,
+      'thrones-genrelist-select-list-container');
   container.appendChild(selectListContainer);
   this.selectListContainer_ = selectListContainer;
 
@@ -50,9 +54,8 @@ thrones.ui.GenreList.prototype.createDom = function() {
   this.getHandler().listen(addNewButton, goog.ui.Component.EventType.ACTION,
       function(e) {
         this.addSelect();
-        console.log("FOOOD", this);
       });
-}
+};
 
 /**
  * Decorates an existing HTML DIV element as a GenreList.
@@ -63,25 +66,28 @@ thrones.ui.GenreList.prototype.createDom = function() {
  */
 thrones.ui.GenreList.prototype.decorateInternal = function(element) {
   this.setElementInternal(element);
-}
+};
 
+/**
+ * TODO(mccreavy): Disable the Add button when 3 Genres are set.
+ */
 thrones.ui.GenreList.prototype.updateAddButton = function() {
   //console.log("hey", this.addNewButton_);
   //this.addNewButton_.setEnabled(false);
-}
+};
 
+/**
+ * Add a select button on user request.
+ */
 thrones.ui.GenreList.prototype.addSelect = function() {
-  console.log("adding item");
-  
   var container = this.dom_.createElement('div');
   this.selectListContainer_.appendChild(container);
-  goog.dom.classlist.add(container, "thrones-genrelist-select-container");
+  goog.dom.classlist.add(container, 'thrones-genrelist-select-container');
 
   var button = new goog.ui.Button('Remove');
   button.myContainer = container;
   button.render(container);
 
-  console.log("boo");
   this.getHandler().listen(button, goog.ui.Component.EventType.ACTION,
     function(e) {
       this.dom_.removeNode(button.myContainer);
@@ -95,26 +101,15 @@ thrones.ui.GenreList.prototype.addSelect = function() {
   select.addItem(new goog.ui.MenuItem('Debbie'));
   select.render(container);
   this.updateAddButton();
-}
+};
 
 /**
  * Called when component's element is known to be in the document.
  * @override
  */
 thrones.ui.GenreList.prototype.enterDocument = function() {
-  console.log("EnteredDocument");
+  console.log('EnterDocument');
   goog.base(this, 'enterDocument');
-  //this.getHandler().listen(this.getElement(), goog.events.EventType.CLICK,
-  //    this.onDivClicked_);
-  //this.getHandler().listen(this.addNewButton_, goog.events.EventType.CLICK,
-  //    function(e) {
-  //      this.addSelect();
-  //      console.log("FOOO", this);
-  //    });
-  //goog.events.listen(this.addNewButton_, goog.ui.Component.EventType.ACTION,
-  //    function(e) {
-  //      console.log("FOOO");
-  //    });
 };
 
 
@@ -124,6 +119,6 @@ thrones.ui.GenreList.prototype.enterDocument = function() {
  * @override
  */
 thrones.ui.GenreList.prototype.exitDocument = function() {
-  console.log("ExitDocument");
+  console.log('ExitDocument');
   goog.base(this, 'exitDocument');
 };
